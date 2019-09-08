@@ -1,0 +1,81 @@
+# vi:ft=zsh
+
+# Paths ------------------------------------------------------------------------
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Completion -------------------------------------------------------------------
+
+autoload -U compinit
+compinit
+
+# allow tab completion in the middle of a word
+setopt COMPLETE_IN_WORD
+
+# allow cursors to select completion
+zstyle ':completion:*' menu select
+
+# Complete aliases as well as commands
+setopt COMPLETE_ALIASES
+
+# History ----------------------------------------------------------------------
+
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_VERIFY
+
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=100000000
+export SAVEHIST=$HISTSIZE
+
+# Fix annoyances ---------------------------------------------------------------
+
+setopt NO_BEEP
+
+# turn off flow control
+stty -ixon -ixoff
+
+# prevent external programs changing tty settings
+ttyctl -f
+
+# Search -----------------------------------------------------------------------
+
+# Search history using arrow keys
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+
+# Key bindings -----------------------------------------------------------------
+
+# Custom Prompt ----------------------------------------------------------------
+
+# enable nice setting of colors
+autoload -U colors
+colors
+
+# Expand variables in $PROMPT
+setopt PROMPT_SUBST
+
+# basename(dirname) $
+PROMPT='%{$fg[magenta]%1~$reset_color%} %{$%G%} '
+
+# include the (lowercased, left-most label of the) hostname in the title
+precmd() { echo -en "\033]0;${(L)HOST%%.*}\007" }
+
+# Sparse PS2
+# preserve indent to match prompt and indicate that this
+# isn't command output
+PS2='  '
+
+# Misc -------------------------------------------------------------------------
+
+# Show elapsed time + CPU stats for long running processes
+# Counts execution time /not/ wall clock
+REPORTTIME=10
+
+# Customisations ---------------------------------------------------------------
+
+source $HOME/.profile

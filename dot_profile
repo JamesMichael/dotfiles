@@ -1,0 +1,10 @@
+# vi:ft=sh
+
+export EDITOR=vim
+export VISUAL=vim
+export PAGER=less
+
+export LC_ALL=C
+export TZ="/usr/share/zoneinfo/Europe/London"
+
+export PATH="$HOME/.local/bin:$PATH:$HOME/go/bin"
