@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+message="$(bump-message | vipe)"
+[ -z "$message" ] && exit
+
+specbump -v -t -m "$message" $*

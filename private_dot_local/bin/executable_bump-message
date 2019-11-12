@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+log_lines_since_last_bump() {
+    git log --pretty=format:"%aE %s" |
+    sed -r '/Bump spec|Bump Spec|Spec bump|Spec Bump|specbump/Q' |
+    sed -r '$s/$/\n/' |
+    sed -r 's/\n\n/\n/g' |
+    sed -r '/^$/d' |
+    tac
+}
+
+filter_uninteresting_lines() {
+    fgrep -iv \
+        -e 'Merge branch' \
+        -e 'Merge remote-tracking branch'
+}
+
+add_user_tags() {
+    sed -r "s/^$USER@netcraft.com //; s/^([^@]+)@netcraft.com /[\1] /"
+}
+
+log_lines_since_last_bump |
+filter_uninteresting_lines |
+add_user_tags
