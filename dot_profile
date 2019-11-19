@@ -20,4 +20,8 @@ export LC_MEASUREMENT="en_GB.UTF-8"
 export LC_IDENTIFICATION="en_GB.UTF-8"
 export TZ="/usr/share/zoneinfo/Europe/London"
 
-export PATH="$HOME/.local/bin:$PATH:$HOME/go/bin"
+if [[ -d /usr/local/go/bin ]]; then
+    export PATH="/usr/local/go/bin:$PATH"
+fi
+
+export PATH="$HOME/.local/bin:$PATH"
