@@ -66,8 +66,13 @@ PROMPT="%F{magenta}%1~%f %{$%G%} "
 
 export LC_ALL=en_GB.UTF-8
 
-# Misc -------------------------------------------------------------------------
+# Misc ------------------------------------------------------------------------
 
 # Show elapsed time + CPU stats for long running processes
 # Counts execution time /not/ wall clock
 REPORTTIME=10
+
+# Init ------------------------------------------------------------------------
+
+# Set shell title to the hostname of the machine
+print -Pn "\033k${HOSTNAME%%.*}\033\\"
