@@ -1,5 +1,7 @@
 # vi:ft=zsh
 
+source ~/.profile
+
 # Paths ------------------------------------------------------------------------
 
 export PATH="$HOME/.local/bin:$PATH"
