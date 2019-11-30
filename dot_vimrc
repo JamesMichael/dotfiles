@@ -79,13 +79,27 @@ set matchpairs+=<:>
 
 " UI --------------------------------------------------------------------------
 
-set number
 set ruler
 set laststatus=2
 set showcmd
 set scrolloff=5
-set colorcolumn=80
 set cmdheight=1
+
+" hide '|' in splits
+set fillchars+=vert:\ 
+
+" set marker at 80 characters
+hi ColorColumn  cterm=NONE ctermbg=black
+set colorcolumn=80
+
+" show line numbers
+hi LineNr       cterm=NONE ctermbg=black ctermfg=blue
+set number
+
+" highlight active line
+hi CursorLine   cterm=NONE ctermbg=NONE
+hi CursorLineNr cterm=NONE ctermbg=blue ctermfg=white
+set cursorline
 
 let g:netrw_banner = 0
 
