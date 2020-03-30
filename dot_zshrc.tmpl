@@ -4,7 +4,7 @@ source ~/.profile
 
 # Paths ------------------------------------------------------------------------
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:{{with .path}}{{.}}:{{end}}$PATH"
 
 # Completion -------------------------------------------------------------------
 
@@ -68,7 +68,8 @@ PROMPT="%F{magenta}%1~%f %{$%G%} "
 
 # Locale ----------------------------------------------------------------------
 
-export LC_ALL=en_GB.UTF-8
+export LC_ALL="{{with .locale}}{{.}}{{else}}en_GB.UTF-8{{end}}"
+export LANG="{{with .lang}}{{.}}{{else}}en_GB.UTF-8{{end}}"
 
 # Misc ------------------------------------------------------------------------
 
