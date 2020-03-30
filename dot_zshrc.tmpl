@@ -79,5 +79,7 @@ REPORTTIME=10
 
 # Init ------------------------------------------------------------------------
 
-# Set shell title to the hostname of the machine
-print -Pn "\033k${HOSTNAME%%.*}\033\\"
+## Set shell title to the hostname of the machine
+precmd() {
+    print -Pn "\033k${HOSTNAME%%.*}\033\\"
+}
