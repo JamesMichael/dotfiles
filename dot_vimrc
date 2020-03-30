@@ -163,3 +163,7 @@ vnoremap <F1> <NOP>
 
 " search
 nnoremap <Leader><Space> :nohlsearch<CR>
+
+" Plugin Settings ------------------------------------------------------------
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
