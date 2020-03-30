@@ -35,5 +35,5 @@ Then, use a templated dotfile, e.g. `dot_zshrc.tmpl`.
 Use Go templates to fill in the data:
 
 ```
-export PATH="$HOME/.local/bin:{{with .path}}{{.}}:{{end}}$PATH"
+export PATH="$HOME/.local/bin:{{if (index . "path")}}{{.path}}:{{end}}$PATH"
 ```
