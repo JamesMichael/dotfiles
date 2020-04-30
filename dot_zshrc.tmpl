@@ -79,7 +79,9 @@ REPORTTIME=10
 
 # Init ------------------------------------------------------------------------
 
-## Set shell title to the hostname of the machine
+# Set shell title to the hostname of the machine
+#
+# if the 'title' variable is not the empty string, it is appended to the hostname
 precmd() {
-    print -Pn "\033k${HOSTNAME%%.*}\033\\"
+    print -Pn "\033k${HOSTNAME%%.*}${title:+ - $title}\033\\"
 }
