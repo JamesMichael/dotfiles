@@ -66,18 +66,18 @@ bindkey -e
 # basename(dirname) $
 PROMPT="%F{magenta}%1~%f %{$%G%} "
 
-# Locale ----------------------------------------------------------------------
+# Locale -----------------------------------------------------------------------
 
 export LC_ALL="{{if (index . "locale")}}{{.locale}}{{else}}en_GB.UTF-8{{end}}"
 export LANG="{{if (index . "lang")}}{{.lang}}{{else}}en_GB.UTF-8{{end}}"
 
-# Misc ------------------------------------------------------------------------
+# Misc -------------------------------------------------------------------------
 
 # Show elapsed time + CPU stats for long running processes
 # Counts execution time /not/ wall clock
 REPORTTIME=10
 
-# Init ------------------------------------------------------------------------
+# Init -------------------------------------------------------------------------
 
 # Set shell title to the hostname of the machine
 #
@@ -85,3 +85,7 @@ REPORTTIME=10
 precmd() {
     print -Pn "\033k${HOSTNAME%%.*}${title:+ - $title}\033\\"
 }
+
+# XDG Config Dir ---------------------------------------------------------------
+
+alias tmux='tmux -f ~/.config/tmux/tmux.conf'
