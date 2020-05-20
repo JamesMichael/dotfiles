@@ -144,6 +144,9 @@ autocmd Filetype css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " go
 autocmd Filetype go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 listchars=tab:\ \ ,trail:%
 
+" yaml
+autocmd Filetype yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
 " Shortcuts -------------------------------------------------------------------
 
 " escape insert mode
