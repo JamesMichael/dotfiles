@@ -173,3 +173,14 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 let g:go_rename_command = 'gopls'
 
+" gvim -----------------------------------------------------------------------
+
+" behave more like a basic text editor
+if has("gui_running")
+    set clipboard=unnamedplus
+    inoremap <S-Insert> <Esc>"+gPA
+    nnoremap <S-Insert> "+gP<Esc>
+
+    inoremap <S-MiddleMouse> <Esc>"*gPA
+    nnoremap <S-MiddleMouse> "*gP<Esc>
+endif
