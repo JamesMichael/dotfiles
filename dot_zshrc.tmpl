@@ -100,3 +100,20 @@ fi
 # XDG Config Dir ---------------------------------------------------------------
 
 alias tmux='tmux -f ~/.config/tmux/tmux.conf'
+
+# Utilities --------------------------------------------------------------------
+
+alias copy='wl-copy'
+alias open='xdg-open'
+alias paste='wl-paste'
+
+# mkdatedir [DIRNAME]
+# Creates a YYYYMMDD formatted directory in the named directory (or the
+# current working directory, if not specified) and then changes into it
+mkdatedir() {
+    local _dir="${1:-.}/$(date +%Y%m%d)"
+    mkdir "$_dir" && cd "$_dir"
+}
+
+# Reformat a markdown table
+alias mdtable='column -t -s "|" -o "|"'
