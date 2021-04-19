@@ -184,3 +184,6 @@ if has("gui_running")
     inoremap <S-MiddleMouse> <Esc>"*gPA
     nnoremap <S-MiddleMouse> "*gP<Esc>
 endif
+
+" adds :Man <manpage>
+runtime ftplugin/man.vim
